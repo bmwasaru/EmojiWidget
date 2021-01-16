@@ -1,3 +1,3 @@
 # EmojiWidget
 
-![screenshot](screenshots/screenshot1.JPG) ![screenshot](screenshots/screenshot2.PNG)
+![screenshot](screenshots/screenshot1.JPG) ![screenshot](screenshots/screenshot3.PNG)
