@@ -49,27 +49,29 @@ struct EmojiDetailsView: View {
 
 struct EmojiwidgetListView: View {
     
-    let emojiData: [EmojiDetails] = EmojiProvider.all()
-    @State private var showingDetail: Bool = false
+    let emojiData = EmojiProvider.all()
+    @State private var visibleEmojiDetails: EmojiDetails?
     
     var body: some View {
         NavigationView {
             List {
                 ForEach(emojiData, content: { emojiDetails in
                     Button(action: {
-                            showingDetail.toggle()
+                            visibleEmojiDetails = emojiDetails
                         
                     }, label: { EmojiItemView(emoji: emojiDetails.emoji, emojiName: emojiDetails.name)
                            })
-                        .sheet(isPresented: $showingDetail) {
-                            EmojiDetailsView(emojiDetails: emojiDetails)
-                        }
                 })
             }
             .foregroundColor(.black)
             .listStyle(InsetGroupedListStyle())
             .navigationBarTitle("Emoji Widget")
           }
+        .onOpenURL { url in
+            guard let emojiDetails = emojiData.first(where: { $0.url == url }) else { return }
+            visibleEmojiDetails = emojiDetails
+        }
+        .sheet(item: $visibleEmojiDetails, content: { emojiDetails in EmojiDetailsView(emojiDetails: emojiDetails)})
     }
 }
 
