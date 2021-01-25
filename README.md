@@ -1,3 +1,7 @@
-# EmojiWidget
+EmojiWidget: Emoji Widget for iOS
 
-![screenshot](screenshots/screenshot1.JPG) ![screenshot](screenshots/screenshot3.PNG) ![screenshot](screenshots/screenshot4.jpeg)
+<p align="center">
+  <img src="screenshots/screenshot1.JPG" width="300"/>
+  <img src="screenshots/screenshot3.PNG" width="300"/>
+  <img src="screenshots/screenshot4.jpeg" width="300"/>
+</p>
